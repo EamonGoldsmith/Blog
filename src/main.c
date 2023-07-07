@@ -1,19 +1,7 @@
+#include <utils.h>
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <string.h>
-#include<stdlib.h>
-
-#define CONNECTION_PORT 3500
-
-int main(int argc, char** argv)
+int main()
 {
-	//handle command line args
-	
-
 	// server socket 
     int socket_descriptor;
     int client_socket;
