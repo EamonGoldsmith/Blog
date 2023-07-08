@@ -8,7 +8,7 @@ typedef struct leaf {
 } leaf_t;
 
 // print the tree
-void print_tree(leaf_t* root);
+void print_tree(leaf_t* tree);
 
 // create a tree
 leaf_t* create_tree(char* label, char* content);
@@ -20,7 +20,7 @@ leaf_t* add_leaf(leaf_t* parent, char* label, char* content);
 leaf_t* search_leaf(leaf_t* tree, char* label);
 
 // remove a leaf
-int remove_leaf(leaf_t* leaf);
+void remove_leaf(leaf_t* tree, leaf_t* leaf);
 
 // destroy the tree
-void destroy_tree(leaf_t* root);
+void destroy_tree(leaf_t* tree);

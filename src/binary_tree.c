@@ -86,14 +86,22 @@ leaf_t* search_leaf(leaf_t* tree, char* label)
 
 void remove_leaf(leaf_t* tree, leaf_t* leaf)
 {
-    //check that leaf is removable
-    if (leaf->right != NULL || tree == NULL || leaf == NULL) {
+    if (tree == NULL || leaf == NULL)
         return;
-    }
+
+    if (leaf->left != NULL && leaf->right)
+        return;
 
     if (tree->left == leaf) {
-        tree->left = leaf->left;
+        tree->left = leaf->left ? leaf->left : leaf->right;
         free(leaf);
+        leaf = NULL;
+    }
+
+    if (tree->right == leaf) {
+        tree->right = leaf->left ? leaf->left : leaf->right;
+        free(leaf);
+        leaf = NULL;
     }
 
     remove_leaf(tree->right, leaf);
